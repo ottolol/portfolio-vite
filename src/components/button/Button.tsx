@@ -1,11 +1,12 @@
 import { styled } from "styled-components";
 
 type buttonPropsType = {
-  text: string;
+  children: string;
+  type?: string;
 };
 
 export function Button(props: buttonPropsType) {
-  return <StyledButton>{props.text}</StyledButton>;
+  return <StyledButton type={props.type}>{props.children}</StyledButton>;
 }
 
-const StyledButton = styled.button``;
+export const StyledButton = styled.button<buttonPropsType>``;
