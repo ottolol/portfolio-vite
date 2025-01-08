@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Menu } from "../../components/menu/Menu";
 import { StyledFlexWrapper } from "../../components/FlexWrapper";
 import Photo from "../../assets/images/blogging 1.webp";
-import { Button } from "../../components/button/Button";
+import { theme } from "../../styles/Theme";
+import { Icon } from "../../components/icon/Icon";
 
 const items = ["Home", "About me", "Projects", "Skills", "Contacts"];
 
@@ -19,11 +20,20 @@ export function Header() {
             sint. Velit officia consequat duis enim velit mollit. Exercitation
             veniam consequat sunt.
           </Text>
-          <Button children="Contact Me" />
+          <ContactMe href="#">Contact me</ContactMe>
         </Developer>
         <Picture src={Photo} />
       </StyledFlexWrapper>
-      <ArrowDown>⬇️</ArrowDown>
+      <ArrowDown>
+        <a href="#">
+          <Icon
+            iconId={"arrowDown"}
+            width="18"
+            height="28"
+            viewBox="0 0 18 28"
+          />
+        </a>
+      </ArrowDown>
     </StyledHeader>
   );
 }
@@ -35,19 +45,54 @@ const StyledHeader = styled.header`
 `;
 
 const Developer = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
-const Picture = styled.img``;
+const Picture = styled.img`
+  padding-top: 140px;
+`;
 
 const Post = styled.h1`
+  font-family: Tinos;
+  font-size: 20px;
+  font-weight: 400;
   text-transform: uppercase;
+  color: ${theme.colors.titles};
 `;
 
-const Name = styled.span``;
+const Name = styled.span`
+  font-size: 72px;
+  font-weight: 600;
+  color: ${theme.colors.accent};
+  margin: 10px -4px;
+`;
 
 const Text = styled.p`
   text-align: justify;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 5px 0 30px 0;
 `;
 
-const ArrowDown = styled.div``;
+const ContactMe = styled.a`
+  font-size: 16px;
+  font-weight: 500;
+
+  color: ${theme.colors.buttons};
+  background-color: ${theme.colors.accent};
+  border-radius: 6px;
+  padding: 12px 20px;
+
+  &:hover {
+    color: ${theme.colors.font};
+    background-color: ${theme.colors.primaryBg};
+    outline: 1px solid ${theme.colors.accent};
+  }
+`;
+
+const ArrowDown = styled.div`
+  margin: 52px 0 0 0;
+`;
