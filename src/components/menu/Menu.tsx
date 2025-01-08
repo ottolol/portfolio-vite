@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../styles/Theme";
 
 export function Menu(props: { menuItems: Array<string> }) {
   return (
@@ -6,8 +7,8 @@ export function Menu(props: { menuItems: Array<string> }) {
       <ul>
         {props.menuItems.map((item) => {
           return (
-            <li>
-              <a>{item}</a>
+            <li key={item}>
+              <a href="#">{item}</a>
             </li>
           );
         })}
@@ -17,12 +18,28 @@ export function Menu(props: { menuItems: Array<string> }) {
 }
 
 const MenuStyled = styled.nav`
-  background-color: #cdb8b8;
-
   ul {
     display: flex;
-    gap: 10px;
+    gap: 67px;
     list-style: none;
-    justify-content: center;
+    justify-content: space-between;
+
+    padding: 40px 0;
+  }
+
+  li {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  a {
+    color: ${theme.colors.font};
+    padding: 12px 20px;
+
+    &:hover {
+      color: ${theme.colors.buttons};
+      background-color: ${theme.colors.accent};
+      border-radius: 6px;
+    }
   }
 `;
