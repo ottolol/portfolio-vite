@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Button, StyledButton } from "../../../../components/button/Button";
+import { StyledButton } from "../../../../components/button/Button";
+import { theme } from "../../../../styles/Theme";
 
 type ProjectPropsType = {
   img: string;
@@ -11,30 +12,45 @@ export function Project(props: ProjectPropsType) {
   return (
     <StyledProject>
       <Img src={props.img} />
-      <Title>{props.title}</Title>
-      <Buttons>
-        <StyledButton children="Javascript" as="span" />
-        <StyledButton children="PostgreSQL" as="span" />
-        <StyledButton children="React" as="span" />
-        <StyledButton children="Redux" as="span" />
-      </Buttons>
-      <Text>{props.text}</Text>
+      <Wrapper>
+        <Title>{props.title}</Title>
+        <Buttons>
+          <StyledButton children="Javascript" as="span" />
+          <StyledButton children="PostgreSQL" as="span" />
+          <StyledButton children="React" as="span" />
+          <StyledButton children="Redux" as="span" />
+        </Buttons>
+        <Text>{props.text}</Text>
+      </Wrapper>
     </StyledProject>
   );
 }
 
 const StyledProject = styled.li`
-  width: 50%;
+  width: 525px;
+  background-color: ${theme.colors.seconradyBg};
+  border-radius: 6px;
+  box-shadow: 2px 2px 32px 0px #28262c26;
 `;
 const Img = styled.img`
-  width: 400px;
+  width: 525px;
+  border-radius: 6px 6px 0 0;
 `;
-const Title = styled.h3``;
+
+const Wrapper = styled.div`
+  margin: 30px 26px;
+`;
+const Title = styled.h3`
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+`;
 const Buttons = styled.div`
   display: flex;
   gap: 12px;
   flex-wrap: nowrap;
   flex-direction: row;
+  margin: 10px 0 20px;
 
   span {
     border-radius: 4px;
@@ -43,10 +59,9 @@ const Buttons = styled.div`
 
     font-weight: 400;
     font-size: 10px;
-    line-height: 140%;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #dbffff;
+    color: ${theme.colors.buttons};
 
     /* &:hover {
       color: #1f2626;
@@ -55,4 +70,8 @@ const Buttons = styled.div`
     } */
   }
 `;
-const Text = styled.p``;
+const Text = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+`;
