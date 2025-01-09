@@ -18,10 +18,16 @@ export function AboutMe() {
 }
 
 const StyledAboutMe = styled.section`
-  background-color: #b2a1d6;
+  margin-top: 220px;
 `;
 
 const Text = styled.p`
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-align: justify;
+
+  margin-top: 20px;
   border-left: 5px solid #5222d0;
-  padding: 0 17px;
+  padding-left: 17px;
 `;
