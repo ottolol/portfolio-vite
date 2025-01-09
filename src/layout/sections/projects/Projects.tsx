@@ -39,11 +39,12 @@ export function Projects() {
   );
 }
 
-const StyledProjects = styled.section`
-  background-color: #9ee466;
-`;
+const StyledProjects = styled.section``;
 
 const ListProjects = styled.ul`
+  margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
 `;
