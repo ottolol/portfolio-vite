@@ -95,4 +95,30 @@ const ContactMe = styled.a`
 
 const ArrowDown = styled.div`
   margin: 52px 0 0 0;
+
+  transition: all ease-in-out 0.2s;
+  animation: animation-arrowDown 1.7s infinite ease;
+  @keyframes animation-arrowDown {
+    0% {
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0);
+    }
+    50% {
+      -moz-transform: translateY(-7px);
+      -ms-transform: translateY(-7px);
+      -webkit-transform: translateY(-7px);
+      -o-transform: translateY(-7px);
+      transform: translateY(-7px);
+    }
+    100% {
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
 `;
