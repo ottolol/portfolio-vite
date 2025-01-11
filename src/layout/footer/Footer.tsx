@@ -34,7 +34,9 @@ export function Footer() {
             <span>GITHUB</span>
           </Link>
         </Wrapper>
-        <Menu menuItems={items} />
+        <BottomMenuStyles>
+          <Menu menuItems={items} className="bottom-menu" />
+        </BottomMenuStyles>
         <Copyright>Web Developer 2025</Copyright>
       </StyledFlexWrapper>
     </StyledFooter>
@@ -67,6 +69,13 @@ const Link = styled.a`
 
   span {
     margin-top: 10px;
+  }
+`;
+
+const BottomMenuStyles = styled.div`
+  .bottom-menu li {
+    font-size: 14px;
+    font-weight: 400;
   }
 `;
 
