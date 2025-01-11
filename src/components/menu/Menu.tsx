@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../styles/Theme";
 
-export function Menu(props: { menuItems: Array<string> }) {
+type menuPropsType = {
+  menuItems: Array<string>;
+  className?: string;
+};
+
+export function Menu(props: menuPropsType) {
   return (
-    <MenuStyled>
+    <MenuStyled className={props.className}>
       <ul>
         {props.menuItems.map((item) => {
           return (
