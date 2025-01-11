@@ -28,7 +28,6 @@ code {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 10px;
-  border: 1px solid #000;
 }
 
 a {
