@@ -30,6 +30,10 @@ const MenuStyled = styled.nav`
     justify-content: space-between;
 
     padding: 40px 0;
+
+    @media ${theme.media.tablet} {
+      display: none;
+    }
   }
 
   li {
