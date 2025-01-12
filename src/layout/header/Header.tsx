@@ -4,6 +4,7 @@ import { StyledFlexWrapper } from "../../components/FlexWrapper";
 import Photo from "../../assets/images/blogging 1.webp";
 import { theme } from "../../styles/Theme";
 import { Icon } from "../../components/icon/Icon";
+import { MobileMenu } from "../../components/menu/MobileMenu";
 
 const items = ["Home", "About me", "Projects", "Skills", "Contacts"];
 
@@ -11,7 +12,13 @@ export function Header() {
   return (
     <StyledHeader>
       <Menu menuItems={items} />
-      <StyledFlexWrapper justifyContent="space-between" alignItems="center">
+      <MobileMenu menuItems={items} />
+      <StyledFlexWrapper
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection="row-reverse"
+      >
+        <Picture src={Photo} />
         <Developer>
           <Post>Developer</Post>
           <Name>Erica Font</Name>
@@ -22,7 +29,6 @@ export function Header() {
           </Text>
           <ContactMe href="#">Contact me</ContactMe>
         </Developer>
-        <Picture src={Photo} />
       </StyledFlexWrapper>
       <ArrowDown>
         <a href="#">
