@@ -5,13 +5,15 @@ import Photo from "../../assets/images/blogging 1.webp";
 import { theme } from "../../styles/Theme";
 import { Icon } from "../../components/icon/Icon";
 import { MobileMenu } from "../../components/menu/MobileMenu";
+import { font } from "../../styles/Common";
 
-const items = ["Home", "About me", "Projects", "Skills", "Contacts"];
+// const items = ["Home", "About me", "Projects", "Skills", "Contacts"];
+const items = ["Home", "Projects", "Contacts"];
 
 export function Header() {
   return (
     <StyledHeader>
-      <Menu menuItems={items} />
+      {/* <Menu menuItems={items} /> */}
       <MobileMenu menuItems={items} />
       <StyledFlexWrapper
         justifyContent="space-between"
@@ -30,16 +32,18 @@ export function Header() {
           <ContactMe href="#">Contact me</ContactMe>
         </Developer>
       </StyledFlexWrapper>
-      <ArrowDown>
-        <a href="#">
-          <Icon
-            iconId={"arrowDown"}
-            width="18"
-            height="28"
-            viewBox="0 0 18 28"
-          />
-        </a>
-      </ArrowDown>
+      <StyledFlexWrapper>
+        <ArrowDown>
+          <a href="#">
+            <Icon
+              iconId={"arrowDown"}
+              width="18"
+              height="28"
+              viewBox="0 0 18 28"
+            />
+          </a>
+        </ArrowDown>
+      </StyledFlexWrapper>
     </StyledHeader>
   );
 }
@@ -48,6 +52,15 @@ const StyledHeader = styled.header`
   font-size: 1.5em;
   text-align: center;
   color: #e91e63;
+
+  @media ${theme.media.tablet} {
+    text-align: inherit;
+
+    ${StyledFlexWrapper} {
+      padding-top: 28px;
+      flex-direction: column;
+    }
+  }
 `;
 
 const Developer = styled.div`
@@ -58,12 +71,19 @@ const Developer = styled.div`
 
 const Picture = styled.img`
   padding-top: 140px;
+  width: 100%;
+
+  @media ${theme.media.tablet} {
+    padding-top: 0;
+    margin-bottom: 65px;
+  }
 `;
 
 const Post = styled.h1`
-  font-family: Tinos;
+  ${font({ family: "Tinos", weight: 400, Fmax: 20, Fmin: 16 })}
+  /* font-family: Tinos;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 400; */
   text-transform: uppercase;
   color: ${theme.colors.titles};
 `;
@@ -100,7 +120,8 @@ const ContactMe = styled.a`
 `;
 
 const ArrowDown = styled.div`
-  margin: 52px 0 0 0;
+  margin: 0 auto;
+  padding: 52px 0 0 0;
 
   transition: all ease-in-out 0.2s;
   animation: animation-arrowDown 1.7s infinite ease;
