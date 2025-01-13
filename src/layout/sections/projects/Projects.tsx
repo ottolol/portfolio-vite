@@ -45,6 +45,6 @@ const ListProjects = styled.ul`
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 25px;
 `;
