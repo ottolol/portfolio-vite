@@ -15,6 +15,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.2;
+  font-weight: 400;
   color: ${theme.colors.font};
   background-color: ${theme.colors.primaryBg};
 }
