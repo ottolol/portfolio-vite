@@ -32,7 +32,7 @@ const MenuStyled = styled.nav`
     padding: 40px 0;
 
     @media ${theme.media.tablet} {
-      display: none;
+      gap: unset;
     }
   }
 
