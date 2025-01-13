@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Icon } from "../../../../components/icon/Icon";
+import { theme } from "../../../../styles/Theme";
 
 type SkillPropsType = {
   iconId: string;
@@ -29,6 +30,14 @@ const StyledSkill = styled.li`
   flex-direction: column;
   align-items: center;
   margin-bottom: 60px;
+
+  @media ${theme.media.tablet} {
+    width: 33%;
+  }
+
+  @media ${theme.media.mobile} {
+    width: 50%;
+  }
 
   /* &:last-child {
     margin-bottom: 0px;
