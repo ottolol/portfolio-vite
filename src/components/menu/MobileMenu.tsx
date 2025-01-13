@@ -37,16 +37,18 @@ const MobileMenuStyled = styled.nav`
 
 const BurgerButton = styled.div<{ isOpen: boolean }>`
   position: fixed;
-  top: -100px;
+  top: -120px;
   right: -100px;
   width: 200px;
   height: 200px;
 
   span {
-    display: block;
+    /* display: block; */
+    display: flex;
+    flex-direction: row-reverse;
     width: 36px;
     height: 2px;
-    background-color: red;
+    background-color: ${theme.colors.font};
     position: absolute;
     left: 40px;
     bottom: 40px;
@@ -62,9 +64,19 @@ const BurgerButton = styled.div<{ isOpen: boolean }>`
       display: block;
       width: 36px;
       height: 2px;
-      background-color: red;
+      background-color: ${theme.colors.font};
       position: absolute;
-      transform: translateX(-10px);
+      transform: translateY(-10px);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: ${theme.colors.font};
+      position: absolute;
+      transform: translateY(10px);
     }
   }
 `;
