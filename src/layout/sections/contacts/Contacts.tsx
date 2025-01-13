@@ -35,7 +35,8 @@ const Form = styled.form`
   margin: 0 auto;
   gap: 10px;
 
-  width: 532px;
+  max-width: 532px;
+  width: 100%;
 `;
 
 const Field = styled.div`
