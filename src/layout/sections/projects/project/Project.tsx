@@ -27,13 +27,15 @@ export function Project(props: ProjectPropsType) {
 }
 
 const StyledProject = styled.li`
-  width: 525px;
+  max-width: 525px;
+  width: 100%;
   background-color: ${theme.colors.seconradyBg};
   border-radius: 6px;
   box-shadow: 2px 2px 32px 0px #28262c26;
 `;
 const Img = styled.img`
-  width: 525px;
+  max-width: 525px;
+  width: 100%;
   border-radius: 6px 6px 0 0;
 `;
 
@@ -48,8 +50,9 @@ const Title = styled.h3`
 const Buttons = styled.div`
   display: flex;
   gap: 12px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction: row;
+
   margin: 10px 0 20px;
 
   span {
@@ -62,6 +65,11 @@ const Buttons = styled.div`
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: ${theme.colors.buttons};
+
+    @media ${theme.media.mobile} {
+      width: 40%;
+      flex-grow: 1;
+    }
 
     /* &:hover {
       color: #1f2626;
