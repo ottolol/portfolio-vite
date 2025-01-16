@@ -1,15 +1,15 @@
-import styled from "styled-components";
-import { theme } from "../../styles/Theme";
-import { font } from "../../styles/Common";
+import { S } from "./Menu_Styles";
 
-type menuPropsType = {
+type desktopMenuPropsType = {
   menuItems: Array<string>;
   className?: string;
 };
 
-export function Menu(props: menuPropsType) {
+export const DesktopMenu: React.FC<desktopMenuPropsType> = (
+  props: desktopMenuPropsType
+) => {
   return (
-    <MenuStyled className={props.className}>
+    <S.DesktopMenu className={props.className}>
       <ul>
         {props.menuItems.map((item) => {
           return (
@@ -19,33 +19,6 @@ export function Menu(props: menuPropsType) {
           );
         })}
       </ul>
-    </MenuStyled>
+    </S.DesktopMenu>
   );
-}
-
-const MenuStyled = styled.nav`
-  ul {
-    display: flex;
-    gap: 67px;
-    list-style: none;
-    justify-content: space-between;
-
-    padding: 40px 0;
-  }
-
-  li {
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  a {
-    color: ${theme.colors.font};
-    padding: 12px 20px;
-
-    &:hover {
-      color: ${theme.colors.buttons};
-      background-color: ${theme.colors.accent};
-      border-radius: 6px;
-    }
-  }
-`;
+};
