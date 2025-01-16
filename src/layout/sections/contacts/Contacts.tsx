@@ -27,6 +27,10 @@ export function Contacts() {
 
 const StyledContacts = styled.section`
   margin-top: 100px;
+
+  @media ${theme.media.mobile} {
+    margin-top: 18px;
+  }
 `;
 const Form = styled.form`
   display: flex;
