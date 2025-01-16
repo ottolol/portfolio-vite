@@ -30,7 +30,9 @@ const DesktopMenu = styled.nav`
 `;
 
 // MobileMenu
-const MobileMenu = styled.nav``;
+const MobileMenu = styled.nav`
+  display: none;
+`;
 
 const BurgerButton = styled.div<{ isOpen: boolean }>`
   position: fixed;
@@ -84,8 +86,8 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   right: 0;
   bottom: 0;
   z-index: 99999;
-  /* display: none; */
-  background-color: #cdbec0;
+  display: none;
+  /* background-color: #cdbec0; */
 
   ${(props) =>
     props.isOpen &&
