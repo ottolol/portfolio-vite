@@ -38,9 +38,12 @@ const Img = styled.img`
   width: 100%;
   border-radius: 6px 6px 0 0;
 `;
-
 const Wrapper = styled.div`
   margin: 30px 26px;
+
+  @media ${theme.media.mobile} {
+    margin: 16px 18px;
+  }
 `;
 const Title = styled.h3`
   font-size: 20px;
@@ -54,6 +57,10 @@ const Buttons = styled.div`
   flex-direction: row;
 
   margin: 10px 0 20px;
+
+  @media ${theme.media.mobile} {
+    margin: 10px 0 16px;
+  }
 
   span {
     border-radius: 4px;
@@ -70,12 +77,6 @@ const Buttons = styled.div`
       width: 40%;
       flex-grow: 1;
     }
-
-    /* &:hover {
-      color: #1f2626;
-      border-bottom: 4px solid #5222d0;
-      background: transparent;
-    } */
   }
 `;
 const Text = styled.p`
