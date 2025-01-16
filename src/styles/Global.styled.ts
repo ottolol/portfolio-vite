@@ -18,6 +18,8 @@ body {
   font-weight: 400;
   color: ${theme.colors.font};
   background-color: ${theme.colors.primaryBg};
+
+  min-width: 360px;
 }
 
 code {
@@ -46,5 +48,9 @@ button {
 
 section {
   margin-top: 140px;
+
+  @media ${theme.media.mobile} {
+    margin-top: 100px;
+  }
 }
 `;
