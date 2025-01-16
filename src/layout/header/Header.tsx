@@ -1,39 +1,47 @@
-import styled from "styled-components";
-import { Menu } from "../../components/menu/Menu";
-import { StyledFlexWrapper } from "../../components/FlexWrapper";
+import React from "react";
 import Photo from "../../assets/images/blogging 1.webp";
-import { theme } from "../../styles/Theme";
-import { Icon } from "../../components/icon/Icon";
+import { Menu } from "../../components/menu/DesktopMenu";
 import { MobileMenu } from "../../components/menu/MobileMenu";
-import { font } from "../../styles/Common";
+import { StyledFlexWrapper } from "../../components/FlexWrapper";
+import { Icon } from "../../components/icon/Icon";
+import { S } from "./Header_Styles" ;
 
-// const items = ["Home", "About me", "Projects", "Skills", "Contacts"];
-const items = ["Home", "Projects", "Contacts"];
+const desktopItems = ["Home", "About me", "Projects", "Skills", "Contacts"];
+const mobileItems = ["Home", "Projects", "Contacts"];
 
-export function Header() {
+export const Header: React.FC = () => {
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const breakpoint = 768;
+
+  React.useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth)
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
   return (
-    <StyledHeader>
-      {/* <Menu menuItems={items} /> */}
-      <MobileMenu menuItems={items} />
+    <S.Header>
+      {width < breakpoint ? <MobileMenu menuItems={mobileItems} /> : <Menu menuItems={desktopItems} />}
+
       <StyledFlexWrapper
         justifyContent="space-between"
         alignItems="center"
         flexDirection="row-reverse"
       >
-        <Picture src={Photo} />
-        <Developer>
-          <Post>Developer</Post>
-          <Name>Erica Font</Name>
-          <Text>
+        <S.Picture src={Photo} />
+        <S.Developer>
+          <S.Post>Developer</S.Post>
+          <S.Name>Erica Font</S.Name>
+          <S.Text>
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
             sint. Velit officia consequat duis enim velit mollit. Exercitation
             veniam consequat sunt.
-          </Text>
-          <ContactMe href="#">Contact me</ContactMe>
-        </Developer>
+          </S.Text>
+          <S.ContactMe href="#">Contact me</S.ContactMe>
+        </S.Developer>
       </StyledFlexWrapper>
-      <StyledFlexWrapper>
-        <ArrowDown>
+      <S.ArrowWrapper>
+        <S.ArrowDown>
           <a href="#">
             <Icon
               iconId={"arrowDown"}
@@ -42,110 +50,8 @@ export function Header() {
               viewBox="0 0 18 28"
             />
           </a>
-        </ArrowDown>
-      </StyledFlexWrapper>
-    </StyledHeader>
+        </S.ArrowDown>
+      </S.ArrowWrapper>
+    </S.Header>
   );
 }
-
-const StyledHeader = styled.header`
-  font-size: 1.5em;
-  text-align: center;
-  color: #e91e63;
-
-  @media ${theme.media.tablet} {
-    text-align: inherit;
-
-    ${StyledFlexWrapper} {
-      padding-top: 28px;
-      flex-direction: column;
-    }
-  }
-`;
-
-const Developer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const Picture = styled.img`
-  padding-top: 140px;
-  width: 100%;
-
-  @media ${theme.media.tablet} {
-    padding-top: 0;
-    margin-bottom: 65px;
-  }
-`;
-
-const Post = styled.h1`
-  ${font({ family: "Tinos", weight: 400, Fmax: 20, Fmin: 16 })}
-  /* font-family: Tinos;
-  font-size: 20px;
-  font-weight: 400; */
-  text-transform: uppercase;
-  color: ${theme.colors.titles};
-`;
-
-const Name = styled.span`
-  font-size: 72px;
-  font-weight: 600;
-  color: ${theme.colors.accent};
-  margin: 10px -4px;
-`;
-
-const Text = styled.p`
-  text-align: justify;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  margin: 5px 0 30px 0;
-`;
-
-const ContactMe = styled.a`
-  font-size: 16px;
-  font-weight: 500;
-
-  color: ${theme.colors.buttons};
-  background-color: ${theme.colors.accent};
-  border-radius: 6px;
-  padding: 12px 20px;
-
-  &:hover {
-    color: ${theme.colors.font};
-    background-color: ${theme.colors.primaryBg};
-    outline: 1px solid ${theme.colors.accent};
-  }
-`;
-
-const ArrowDown = styled.div`
-  margin: 0 auto;
-  padding: 52px 0 0 0;
-
-  transition: all ease-in-out 0.2s;
-  animation: animation-arrowDown 1.7s infinite ease;
-  @keyframes animation-arrowDown {
-    0% {
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -webkit-transform: translateY(0);
-      -o-transform: translateY(0);
-      transform: translateY(0);
-    }
-    50% {
-      -moz-transform: translateY(-7px);
-      -ms-transform: translateY(-7px);
-      -webkit-transform: translateY(-7px);
-      -o-transform: translateY(-7px);
-      transform: translateY(-7px);
-    }
-    100% {
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -webkit-transform: translateY(0);
-      -o-transform: translateY(0);
-      transform: translateY(0);
-    }
-  }
-`;
