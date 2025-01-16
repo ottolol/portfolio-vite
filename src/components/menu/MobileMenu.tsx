@@ -29,10 +29,6 @@ export function MobileMenu(props: mobileMenuPropsType) {
 
 const MobileMenuStyled = styled.nav`
   display: none;
-
-  @media ${theme.media.tablet} {
-    display: block;
-  }
 `;
 
 const BurgerButton = styled.div<{ isOpen: boolean }>`
