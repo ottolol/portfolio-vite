@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Icon } from "../../components/icon/Icon";
-import { Menu } from "../../components/menu/DesktopMenu";
+import { DesktopMenu } from "../../components/menu/DesktopMenu";
 import { StyledFlexWrapper } from "../../components/FlexWrapper";
 import { theme } from "../../styles/Theme";
 
@@ -35,7 +35,7 @@ export function Footer() {
           </Link>
         </Wrapper>
         <BottomMenuStyles>
-          <Menu menuItems={items} className="bottom-menu" />
+          <DesktopMenu menuItems={items} className="bottom-menu" />
         </BottomMenuStyles>
         <Copyright>Web Developer 2025</Copyright>
       </StyledFlexWrapper>
