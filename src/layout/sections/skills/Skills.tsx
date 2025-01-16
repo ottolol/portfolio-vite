@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Skill } from "./skill/Skill";
 import { Title } from "../../../components/title/Title";
+import { theme } from "../../../styles/Theme";
 
 export function Skills() {
   return (
@@ -109,4 +110,8 @@ const Wrapper = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 30px;
+
+  @media ${theme.media.mobile} {
+    margin-top: 46px;
+  }
 `;
