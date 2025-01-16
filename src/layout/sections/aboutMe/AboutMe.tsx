@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Title } from "../../../components/title/Title";
+import { theme } from "../../../styles/Theme";
 
 export function AboutMe() {
   return (
@@ -19,10 +20,14 @@ export function AboutMe() {
 
 const StyledAboutMe = styled.section`
   margin-top: 220px;
+
+  @media ${theme.media.mobile} {
+    margin-top: 70px;
+  }
 `;
 
 const Text = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.04em;
   text-align: justify;
