@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Icon } from "../../../../components/icon/Icon";
 import { theme } from "../../../../styles/Theme";
+import { font } from "../../../../styles/Common";
 
 type SkillPropsType = {
   iconId: string;
@@ -33,21 +34,24 @@ const StyledSkill = styled.li`
 
   @media ${theme.media.tablet} {
     width: 33%;
+    margin-bottom: 82px;
   }
 
-  @media ${theme.media.mobile} {
-    width: 50%;
+  svg {
+    @media ${theme.media.mobile} {
+      width: 85px;
+      height: auto;
+    }
   }
-
-  /* &:last-child {
-    margin-bottom: 0px;
-  } */
 `;
 const Text = styled.span`
-  font-size: 16px;
-  font-weight: 400;
+  ${font({ weight: 400, Fmax: 16, Fmin: 11 })};
   letter-spacing: 0.1354em;
   text-transform: uppercase;
   margin-top: 20px;
   text-align: center;
+
+  @media ${theme.media.mobile} {
+    margin-top: 16px;
+  }
 `;
