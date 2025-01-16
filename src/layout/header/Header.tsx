@@ -1,10 +1,10 @@
 import React from "react";
 import Photo from "../../assets/images/blogging 1.webp";
-import { Menu } from "../../components/menu/DesktopMenu";
+import { DesktopMenu } from "../../components/menu/DesktopMenu";
 import { MobileMenu } from "../../components/menu/MobileMenu";
 import { StyledFlexWrapper } from "../../components/FlexWrapper";
 import { Icon } from "../../components/icon/Icon";
-import { S } from "./Header_Styles" ;
+import { S } from "./Header_Styles";
 
 const desktopItems = ["Home", "About me", "Projects", "Skills", "Contacts"];
 const mobileItems = ["Home", "Projects", "Contacts"];
@@ -14,14 +14,18 @@ export const Header: React.FC = () => {
   const breakpoint = 768;
 
   React.useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth)
+    const handleWindowResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleWindowResize);
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
   return (
     <S.Header>
-      {width < breakpoint ? <MobileMenu menuItems={mobileItems} /> : <Menu menuItems={desktopItems} />}
+      {width < breakpoint ? (
+        <MobileMenu menuItems={mobileItems} />
+      ) : (
+        <DesktopMenu menuItems={desktopItems} />
+      )}
 
       <StyledFlexWrapper
         justifyContent="space-between"
@@ -54,4 +58,4 @@ export const Header: React.FC = () => {
       </S.ArrowWrapper>
     </S.Header>
   );
-}
+};
