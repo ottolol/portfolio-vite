@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Icon } from "../../components/icon/Icon";
-import { Menu } from "../../components/menu/Menu";
+import { Menu } from "../../components/menu/DesktopMenu";
 import { StyledFlexWrapper } from "../../components/FlexWrapper";
 import { theme } from "../../styles/Theme";
 
@@ -45,12 +45,16 @@ export function Footer() {
 
 const StyledFooter = styled.section`
   margin-top: 190px;
+
+  @media ${theme.media.mobile} {
+    margin-top: 150px;
+  }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   gap: 73px;
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
 `;
 
 const Link = styled.a`
@@ -73,6 +77,8 @@ const Link = styled.a`
 `;
 
 const BottomMenuStyles = styled.div`
+  margin: 9px 0;
+
   .bottom-menu li {
     font-size: 14px;
     font-weight: 400;
@@ -86,5 +92,5 @@ const Copyright = styled.small`
 
   text-transform: uppercase;
 
-  margin-top: 40px;
+  // margin-top: 40px;
 `;
