@@ -4,7 +4,7 @@ type mobileMenuPropsType = {
   menuItems: Array<string>;
 };
 
-export function MobileMenu(props: mobileMenuPropsType) {
+export const MobileMenu: React.FC<mobileMenuPropsType> = (props: mobileMenuPropsType) => {
   return (
     <S.MobileMenu>
       <S.BurgerButton isOpen={true}>
