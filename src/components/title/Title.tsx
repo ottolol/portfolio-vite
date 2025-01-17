@@ -1,6 +1,11 @@
+import React from "react";
 import styled from "styled-components";
 
-export function Title(props: { title: string }) {
+type TitlePropsType = {
+  title: string
+}
+
+export const Title: React.FC<TitlePropsType> = (props: TitlePropsType) => {
   return <StyledTitle>{props.title}</StyledTitle>;
 }
 
