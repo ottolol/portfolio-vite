@@ -1,3 +1,4 @@
+import React from "react";
 import { Icon } from "../../components/icon/Icon";
 import { DesktopMenu } from "../../components/menu/DesktopMenu";
 import { StyledFlexWrapper } from "../../components/FlexWrapper";
@@ -10,7 +11,7 @@ const linksItems = [
   {href: "#", iconId: "github", width: "39", height: "38", viewBox: "0 0 39 38", text: "GITHUB"}
 ]
 
-export function Footer() {
+export const Footer: React.FC = () => {
   return (
     <S.Footer>
       <StyledFlexWrapper flexDirection="column" alignItems="center">
