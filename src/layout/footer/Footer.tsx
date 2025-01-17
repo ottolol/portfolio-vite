@@ -1,96 +1,35 @@
-import styled from "styled-components";
 import { Icon } from "../../components/icon/Icon";
 import { DesktopMenu } from "../../components/menu/DesktopMenu";
 import { StyledFlexWrapper } from "../../components/FlexWrapper";
-import { theme } from "../../styles/Theme";
+import { S } from "./Footer_Styles"
 
 const items = ["Projects", "Contacts"];
+const linksItems = [
+  {href: "#", iconId: "gmail", width: "39", height: "38", viewBox: "0 0 39 38", text: "Gmail"},
+  {href: "#", iconId: "linkein", width: "39", height: "38", viewBox: "0 0 39 38", text: "linkedin"},
+  {href: "#", iconId: "github", width: "39", height: "38", viewBox: "0 0 39 38", text: "GITHUB"}
+]
 
 export function Footer() {
   return (
-    <StyledFooter>
+    <S.Footer>
       <StyledFlexWrapper flexDirection="column" alignItems="center">
-        <Wrapper>
-          <Link href="">
-            <Icon iconId={"gmail"} width="39" height="38" viewBox="0 0 39 38" />
-            <span>Gmail</span>
-          </Link>
-          <Link href="">
-            <Icon
-              iconId={"linkein"}
-              width="39"
-              height="38"
-              viewBox="0 0 39 38"
-            />
-            <span>linkedin</span>
-          </Link>
-          <Link href="">
-            <Icon
-              iconId={"github"}
-              width="39"
-              height="38"
-              viewBox="0 0 39 38"
-            />
-            <span>GITHUB</span>
-          </Link>
-        </Wrapper>
-        <BottomMenuStyles>
+        <S.Wrapper>
+          {linksItems.map((l) => {
+            return (
+              <S.Link href={l.href}>
+                <Icon iconId={l.iconId} width={l.width} height={l.height} viewBox={l.viewBox} />
+                <span>{l.text}</span>
+              </S.Link>
+            )
+          })}
+        </S.Wrapper>
+        <S.BottomMenuStyles>
           <DesktopMenu menuItems={items} className="bottom-menu" />
-        </BottomMenuStyles>
-        <Copyright>Web Developer 2025</Copyright>
+        </S.BottomMenuStyles>
+        <S.Copyright>Web Developer 2025</S.Copyright>
       </StyledFlexWrapper>
-    </StyledFooter>
+    </S.Footer>
   );
 }
 
-const StyledFooter = styled.section`
-  margin-top: 190px;
-
-  @media ${theme.media.mobile} {
-    margin-top: 150px;
-  }
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  gap: 73px;
-  // margin-bottom: 40px;
-`;
-
-const Link = styled.a`
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  color: ${theme.colors.font};
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  span {
-    margin-top: 10px;
-  }
-`;
-
-const BottomMenuStyles = styled.div`
-  margin: 9px 0;
-
-  .bottom-menu li {
-    font-size: 14px;
-    font-weight: 400;
-  }
-`;
-
-const Copyright = styled.small`
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-
-  text-transform: uppercase;
-
-  // margin-top: 40px;
-`;
