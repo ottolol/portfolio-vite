@@ -30,9 +30,7 @@ const DesktopMenu = styled.nav`
 `;
 
 // MobileMenu
-const MobileMenu = styled.nav`
-  display: none;
-`;
+const MobileMenu = styled.nav``;
 
 const BurgerButton = styled.div<{ isOpen: boolean }>`
   position: fixed;
@@ -40,6 +38,7 @@ const BurgerButton = styled.div<{ isOpen: boolean }>`
   right: -100px;
   width: 200px;
   height: 200px;
+  z-index: 99999;
 
   span {
     display: flex;
@@ -50,11 +49,12 @@ const BurgerButton = styled.div<{ isOpen: boolean }>`
     position: absolute;
     left: 40px;
     bottom: 40px;
+    z-index: 9999;
 
     ${(props) =>
       props.isOpen &&
       css<{ isOpen: boolean }>`
-        color: rgba(255, 255, 255, 0);
+        background-color: none;
       `}
 
     &::before {
@@ -65,6 +65,13 @@ const BurgerButton = styled.div<{ isOpen: boolean }>`
       background-color: ${theme.colors.font};
       position: absolute;
       transform: translateY(-10px);
+
+      ${(props) =>
+        props.isOpen &&
+        css<{ isOpen: boolean }>`
+          transform: rotate(-45deg) translateY(0);
+          background-color: ${theme.colors.buttons};
+        `}
     }
 
     &::after {
@@ -75,6 +82,14 @@ const BurgerButton = styled.div<{ isOpen: boolean }>`
       background-color: ${theme.colors.font};
       position: absolute;
       transform: translateY(10px);
+
+      ${(props) =>
+        props.isOpen &&
+        css<{ isOpen: boolean }>`
+          transform: rotate(45deg) translateY(0);
+          background-color: ${theme.colors.buttons};
+          width: 36px;
+        `}
     }
   }
 `;
@@ -85,9 +100,9 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 99999;
+  z-index: 999;
   display: none;
-  /* background-color: #cdbec0; */
+  background-color: rgba(21, 20, 20, 0.9);
 
   ${(props) =>
     props.isOpen &&
@@ -100,6 +115,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   ul {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 32px;
     list-style: none;
 
@@ -112,7 +128,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   }
 
   a {
-    color: ${theme.colors.font};
+    color: ${theme.colors.buttons};
     padding: 12px 20px;
 
     &:hover {
