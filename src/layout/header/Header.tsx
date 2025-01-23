@@ -7,7 +7,11 @@ import { Icon } from "../../components/icon/Icon";
 import { S } from "./Header_Styles";
 
 const desktopItems = ["Home", "About me", "Projects", "Skills", "Contacts"];
-const mobileItems = ["Home", "Projects", "Contacts"];
+const mobileItems = [
+  { name: "Home", link: "#home" },
+  { name: "Projects", link: "#projects" },
+  { name: "Contacts", link: "#contacts" },
+];
 
 export const Header: React.FC = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -20,7 +24,7 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <S.Header>
+    <S.Header id="home">
       {width < breakpoint ? (
         <MobileMenu menuItems={mobileItems} />
       ) : (
