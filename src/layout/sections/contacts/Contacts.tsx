@@ -1,9 +1,9 @@
 import { Title } from "../../../components/title/Title";
-import { S } from "./Contacts_Styles"
+import { S } from "./Contacts_Styles";
 
 export const Contacts: React.FC = () => {
   return (
-    <S.Contacts>
+    <S.Contacts id="contacts">
       <Title title="Contacts"></Title>
       <S.Form action="" method="">
         <S.Field>
@@ -22,6 +22,4 @@ export const Contacts: React.FC = () => {
       </S.Form>
     </S.Contacts>
   );
-}
-
-
+};
