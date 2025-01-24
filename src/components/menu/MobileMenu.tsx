@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { S } from "./Menu_Styles";
+import { Menu } from "./Menu";
 
 type mobileMenuPropsType = {
   menuItems: Array<{ name: string; link: string }>;
 };
 
-export const MobileMenu: React.FC<mobileMenuPropsType> = (
-  props: mobileMenuPropsType
-) => {
+export const MobileMenu: React.FC<mobileMenuPropsType> = () => {
   const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false);
   const BurgerMenuHandleClick = () => {
     setBurgerMenuIsOpen(!burgerMenuIsOpen);
@@ -23,15 +22,7 @@ export const MobileMenu: React.FC<mobileMenuPropsType> = (
         isOpen={burgerMenuIsOpen}
         onClick={() => setBurgerMenuIsOpen(false)}
       >
-        <ul>
-          {props.menuItems.map((item) => {
-            return (
-              <li key={item.name}>
-                <a href={item.link}>{item.name}</a>
-              </li>
-            );
-          })}
-        </ul>
+        <Menu />
       </S.MobileMenuPopup>
     </S.MobileMenu>
   );
