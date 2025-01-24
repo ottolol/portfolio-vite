@@ -46,14 +46,15 @@ const Copyright = styled.small`
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.04em;
-
   text-transform: uppercase;
+
+  padding-top: 50px;
 `;
 
 export const S = {
-    Footer,
-    Wrapper,
-    Link,
-    BottomMenuStyles,
-    Copyright
-}
+  Footer,
+  Wrapper,
+  Link,
+  BottomMenuStyles,
+  Copyright,
+};
