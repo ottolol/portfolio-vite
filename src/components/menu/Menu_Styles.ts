@@ -20,6 +20,7 @@ const DesktopMenu = styled.nav`
   a {
     color: ${theme.colors.font};
     padding: 12px 20px;
+    cursor: pointer;
 
     &:hover {
       color: ${theme.colors.buttons};
