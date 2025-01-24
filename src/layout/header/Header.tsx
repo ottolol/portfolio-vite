@@ -5,13 +5,7 @@ import { MobileMenu } from "../../components/menu/MobileMenu";
 import { StyledFlexWrapper } from "../../components/FlexWrapper";
 import { Icon } from "../../components/icon/Icon";
 import { S } from "./Header_Styles";
-
-const desktopItems = ["Home", "About me", "Projects", "Skills", "Contacts"];
-const mobileItems = [
-  { name: "Home", link: "#home" },
-  { name: "Projects", link: "#projects" },
-  { name: "Contacts", link: "#contacts" },
-];
+import { Link } from "react-scroll";
 
 export const Header: React.FC = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -26,9 +20,9 @@ export const Header: React.FC = () => {
   return (
     <S.Header id="home">
       {width < breakpoint ? (
-        <MobileMenu menuItems={mobileItems} />
+        <MobileMenu menuItems={[]} />
       ) : (
-        <DesktopMenu menuItems={desktopItems} />
+        <DesktopMenu menuItems={[]} />
       )}
 
       <StyledFlexWrapper
@@ -50,14 +44,14 @@ export const Header: React.FC = () => {
       </StyledFlexWrapper>
       <S.ArrowWrapper>
         <S.ArrowDown>
-          <a href="#">
+          <Link to={"about_me"} spy={true} smooth={true}>
             <Icon
               iconId={"arrowDown"}
               width="18"
               height="28"
               viewBox="0 0 18 28"
             />
-          </a>
+          </Link>
         </S.ArrowDown>
       </S.ArrowWrapper>
     </S.Header>
