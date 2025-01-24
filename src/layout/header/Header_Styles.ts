@@ -36,7 +36,7 @@ const Picture = styled.img`
   }
 
   @media ${theme.media.mobile} {
-    max-width: 318px;  
+    max-width: 318px;
     width: 100%;
   }
 `;
@@ -48,7 +48,7 @@ const Post = styled.h1`
 `;
 
 const Name = styled.span`
-  ${font({weight: 600, Fmax: 72, Fmin: 40})}
+  ${font({ weight: 600, Fmax: 72, Fmin: 40 })}
   color: ${theme.colors.accent};
   margin: 10px -4px;
 
@@ -92,9 +92,13 @@ const ArrowWrapper = styled.div`
   @media ${theme.media.mobile} {
     display: none;
   }
-`
+`;
 
 const ArrowDown = styled.div`
+  a {
+    cursor: pointer;
+  }
+
   margin: 0 auto;
   padding: 52px 0 0 0;
 
@@ -126,13 +130,13 @@ const ArrowDown = styled.div`
 `;
 
 export const S = {
-    Header,
-    Developer,
-    Picture,
-    Post,
-    Name,
-    Text,
-    ContactMe,
-    ArrowWrapper,
-    ArrowDown
-}
+  Header,
+  Developer,
+  Picture,
+  Post,
+  Name,
+  Text,
+  ContactMe,
+  ArrowWrapper,
+  ArrowDown,
+};
