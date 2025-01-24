@@ -1,9 +1,9 @@
 import { Title } from "../../../components/title/Title";
-import { S } from "./AboutMe_Styles"
+import { S } from "./AboutMe_Styles";
 
 export const AboutMe: React.FC = () => {
   return (
-    <S.AboutMe>
+    <S.AboutMe id="about_me">
       <Title title="About me"></Title>
       <S.Text>
         The long barrow was built on land previously inhabited in the Mesolithic
@@ -15,4 +15,4 @@ export const AboutMe: React.FC = () => {
       </S.Text>
     </S.AboutMe>
   );
-}
+};
