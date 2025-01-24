@@ -1,7 +1,8 @@
+import { Menu } from "./Menu";
 import { S } from "./Menu_Styles";
 
 type desktopMenuPropsType = {
-  menuItems: Array<string>;
+  menuItems: Array<{ name: string; link: string }>;
   className?: string;
 };
 
@@ -10,15 +11,7 @@ export const DesktopMenu: React.FC<desktopMenuPropsType> = (
 ) => {
   return (
     <S.DesktopMenu className={props.className}>
-      <ul>
-        {props.menuItems.map((item) => {
-          return (
-            <li key={item}>
-              <a href="#">{item}</a>
-            </li>
-          );
-        })}
-      </ul>
+      <Menu />
     </S.DesktopMenu>
   );
 };
