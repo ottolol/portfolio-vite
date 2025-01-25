@@ -87,6 +87,7 @@ const ButtonSubmit = styled.button`
   border-radius: 6px;
   padding: 12px 20px;
   cursor: pointer;
+  transition: ${theme.animation.transition};
 
   &:hover {
     color: ${theme.colors.font};
@@ -96,9 +97,9 @@ const ButtonSubmit = styled.button`
 `;
 
 export const S = {
-    Contacts,
-    Form,
-    Field,
-    InputArea,
-    ButtonSubmit
-}
+  Contacts,
+  Form,
+  Field,
+  InputArea,
+  ButtonSubmit,
+};
