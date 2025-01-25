@@ -78,6 +78,7 @@ const ContactMe = styled.a`
   background-color: ${theme.colors.accent};
   border-radius: 6px;
   padding: 12px 20px;
+  transition: ${theme.animation.transition};
 
   &:hover {
     color: ${theme.colors.font};
