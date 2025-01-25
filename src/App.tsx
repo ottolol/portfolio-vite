@@ -1,3 +1,4 @@
+import { ToTop } from "./components/toTop/ToTop";
 import { Footer } from "./layout/footer/Footer";
 import { Header } from "./layout/header/Header";
 import { AboutMe } from "./layout/sections/aboutMe/AboutMe";
@@ -14,6 +15,7 @@ function App() {
       <Skills />
       <Contacts />
       <Footer />
+      <ToTop />
     </div>
   );
 }
