@@ -21,6 +21,7 @@ const DesktopMenu = styled.nav`
     color: ${theme.colors.font};
     padding: 12px 20px;
     cursor: pointer;
+    transition: ${theme.animation.transition};
 
     &:hover {
       color: ${theme.colors.buttons};
@@ -105,12 +106,17 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   display: none;
   background-color: rgba(21, 20, 20, 0.9);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateY(-100%);
+  transition: 0.5s ease-in-out;
+
   ${(props) =>
     props.isOpen &&
     css<{ isOpen: boolean }>`
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      transform: translateY(0);
     `}
 
   ul {
