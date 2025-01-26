@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { S } from "./Menu_Styles";
 import { Menu } from "./Menu";
+import { Popup } from "../popup/Popup";
 
 type mobileMenuPropsType = {
   menuItems: Array<{ name: string; link: string }>;
@@ -18,12 +19,17 @@ export const MobileMenu: React.FC<mobileMenuPropsType> = () => {
         <span></span>
       </S.BurgerButton>
 
-      <S.MobileMenuPopup
+      {/* <S.MobileMenuPopup
         isOpen={burgerMenuIsOpen}
         onClick={() => setBurgerMenuIsOpen(false)}
       >
         <Menu />
-      </S.MobileMenuPopup>
+      </S.MobileMenuPopup> */}
+      <Popup
+        Children={<Menu />}
+        isOpen={burgerMenuIsOpen}
+        onClick={() => setBurgerMenuIsOpen(false)}
+      ></Popup>
     </S.MobileMenu>
   );
 };
