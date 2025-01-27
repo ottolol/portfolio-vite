@@ -1,10 +1,13 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Title } from "../../../components/title/Title";
 import { S } from "./Contacts_Styles";
 import emailjs from "@emailjs/browser";
+import { Popup } from "../../../components/popup/Popup";
+import { Thanks } from "../../../components/thanks/Thanks";
 
 export const Contacts: React.FC = () => {
   const form = useRef();
+  const [showPopup, setShowPopup] = useState(false);
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -18,6 +21,8 @@ export const Contacts: React.FC = () => {
       .then(
         () => {
           console.log("SUCCESS!");
+          setShowPopup(true);
+          setTimeout(() => setShowPopup(false), 2000);
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -53,6 +58,11 @@ export const Contacts: React.FC = () => {
         </S.Field>
         <S.ButtonSubmit type="submit">Submit</S.ButtonSubmit>
       </S.Form>
+
+      <Popup
+        popUpText={<Thanks thnaksText="Спасибо, ваше письмо отправлено!" />}
+        isOpen={showPopup}
+      />
     </S.Contacts>
   );
 };
