@@ -19,17 +19,11 @@ export const MobileMenu: React.FC<mobileMenuPropsType> = () => {
         <span></span>
       </S.BurgerButton>
 
-      {/* <S.MobileMenuPopup
-        isOpen={burgerMenuIsOpen}
-        onClick={() => setBurgerMenuIsOpen(false)}
-      >
-        <Menu />
-      </S.MobileMenuPopup> */}
       <Popup
-        Children={<Menu />}
+        popUpText={<Menu />}
         isOpen={burgerMenuIsOpen}
         onClick={() => setBurgerMenuIsOpen(false)}
-      ></Popup>
+      />
     </S.MobileMenu>
   );
 };
