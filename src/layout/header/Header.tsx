@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Photo from "../../assets/images/blogging 1.webp";
 import { DesktopMenu } from "../../components/menu/DesktopMenu";
 import { MobileMenu } from "../../components/menu/MobileMenu";
@@ -6,6 +6,8 @@ import { StyledFlexWrapper } from "../../components/FlexWrapper";
 import { Icon } from "../../components/icon/Icon";
 import { S } from "./Header_Styles";
 import { Link } from "react-scroll";
+import { Popup } from "../../components/popup/Popup";
+import { ContactForm } from "../../components/form/ContactForm";
 
 export const Header: React.FC = () => {
   const [width, setWidth] = React.useState(window.innerWidth);
@@ -16,6 +18,8 @@ export const Header: React.FC = () => {
     window.addEventListener("resize", handleWindowResize);
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
+
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <S.Header id="home">
@@ -39,7 +43,13 @@ export const Header: React.FC = () => {
             sint. Velit officia consequat duis enim velit mollit. Exercitation
             veniam consequat sunt.
           </S.Text>
-          <S.ContactMe href="#">Contact me</S.ContactMe>
+          <S.ContactMe onClick={() => setShowPopup(true)}>
+            Contact me
+          </S.ContactMe>
+          <Popup
+            popUpText={<ContactForm setShowPopup={setShowPopup} />}
+            isOpen={showPopup}
+          />
         </S.Developer>
       </StyledFlexWrapper>
       <S.ArrowWrapper>
