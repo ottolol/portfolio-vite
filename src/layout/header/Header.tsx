@@ -43,9 +43,13 @@ export const Header: React.FC = () => {
             sint. Velit officia consequat duis enim velit mollit. Exercitation
             veniam consequat sunt.
           </S.Text>
-          <S.ContactMe onClick={() => setShowPopup(true)}>
-            Contact me
+
+          <S.ContactMe>
+            <Link to={"contacts"} spy={true} smooth={true}>
+              Contact me
+            </Link>
           </S.ContactMe>
+
           <Popup
             popUpText={<ContactForm setShowPopup={setShowPopup} />}
             isOpen={showPopup}
