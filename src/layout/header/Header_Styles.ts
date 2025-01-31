@@ -84,6 +84,7 @@ const ContactMe = styled.a`
     color: ${theme.colors.font};
     background-color: ${theme.colors.primaryBg};
     outline: 1px solid ${theme.colors.accent};
+    cursor: pointer;
   }
 `;
 
