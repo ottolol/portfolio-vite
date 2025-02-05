@@ -7,15 +7,6 @@ import { S } from "./Projects_Styles";
 export const Projects: React.FC = () => {
   const [showAllProjects, SetShowAllProjects] = React.useState(false);
 
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const breakpoint = 576;
-
-  React.useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
-
   const projectItems = [
     {
       title: "title project",
@@ -50,7 +41,7 @@ export const Projects: React.FC = () => {
           ))}
       </S.ListProjects>
 
-      {width < breakpoint && !showAllProjects ? (
+      {!showAllProjects ? (
         <S.SeeAllProjectsWrapper>
           <S.SeeAllProjects
             onClick={() => SetShowAllProjects(!showAllProjects)}
