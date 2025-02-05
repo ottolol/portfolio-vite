@@ -9,19 +9,17 @@ const ListProjects = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
-  
+
   @media ${theme.media.mobile} {
-  gap: 16px;}
+    gap: 16px;
+  }
 `;
 
 const SeeAllProjectsWrapper = styled.div`
   display: flex;
   justify-content: center;
-
-  @media ${theme.media.mobile} {
-    padding-top: 36px;
-  }
-`
+  padding-top: 36px;
+`;
 
 const SeeAllProjects = styled.button`
   font-size: 16px;
@@ -37,8 +35,9 @@ const SeeAllProjects = styled.button`
     color: ${theme.colors.font};
     background-color: ${theme.colors.primaryBg};
     outline: 1px solid ${theme.colors.accent};
+    cursor: pointer;
   }
-`
+`;
 
 // Project
 const Project = styled.li`
@@ -101,14 +100,14 @@ const Text = styled.p`
 `;
 
 export const S = {
-    Projects,
-    ListProjects,
-    SeeAllProjectsWrapper,
-    SeeAllProjects,
-    Project,
-    Img,
-    Wrapper,
-    Title,
-    Buttons,
-    Text
-}
+  Projects,
+  ListProjects,
+  SeeAllProjectsWrapper,
+  SeeAllProjects,
+  Project,
+  Img,
+  Wrapper,
+  Title,
+  Buttons,
+  Text,
+};
