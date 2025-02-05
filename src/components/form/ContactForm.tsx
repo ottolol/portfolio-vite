@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { FormEvent, useRef } from "react";
 import { S } from "./ContactForm_Styles";
 import emailjs from "@emailjs/browser";
 
@@ -7,9 +7,9 @@ type ContactFormType = {
 };
 
 export const ContactForm: React.FC<ContactFormType> = ({ setShowPopup }) => {
-  const form = useRef();
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const sendEmail = (e: any) => {
+  const sendEmail = (e: FormEvent) => {
     e.preventDefault();
 
     if (!form.current) return;
@@ -29,7 +29,7 @@ export const ContactForm: React.FC<ContactFormType> = ({ setShowPopup }) => {
         }
       );
 
-    e.target.reset();
+    (e.target as HTMLFormElement).reset();
   };
 
   return (
