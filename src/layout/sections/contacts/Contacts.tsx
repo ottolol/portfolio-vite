@@ -12,10 +12,9 @@ export const Contacts: React.FC = () => {
     <S.Contacts id="contacts">
       <Title title="Contacts"></Title>
       <ContactForm setShowPopup={setShowPopup} />
-      <Popup
-        popUpText={<Thanks thnaksText="Спасибо, ваше письмо отправлено!" />}
-        isOpen={showPopup}
-      />
+      <Popup isOpen={showPopup}>
+        <Thanks thnaksText="Спасибо, ваше письмо отправлено!" />
+      </Popup>
     </S.Contacts>
   );
 };
